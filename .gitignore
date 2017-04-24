@@ -1,0 +1,7 @@
+# Ignore file for use with Visual Studio 2013
+
+*.obj
+*.exe
+**/Debug/*
+**/Release/*
+**/x64/*
