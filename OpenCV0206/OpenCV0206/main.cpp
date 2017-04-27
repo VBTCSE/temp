@@ -84,7 +84,6 @@ void onTrackbarSlide(int pos, void*)
 		// Use the GaussianBlur function to filter the source image into the 
 		// destination image.  Use a 5 X 5 kernel, and std dev of 3, both directions.
 		//-------------------------------------------------------------------------
-#pragma message ("*** add code ***")	// TODO: add your code here.  Replace this line with your code
 		GaussianBlur(g_imageInput, g_imageOutput, Size(5, 5), 3, 3);
 
 		for (int i = 1; i < pos; i++)	// Loop over all additional filtering cycles 
@@ -100,7 +99,6 @@ void onTrackbarSlide(int pos, void*)
 			// destination image.  Note that these are the same entity, here.
 			// Use a 5 X 5 kernel, and std dev of 3, both directions.
 			//-------------------------------------------------------------------------
-#pragma message ("*** add code ***")	// TODO: add your code here.  Replace this line with your code
 			GaussianBlur(g_imageOutput, g_imageOutput, Size(5, 5), 3, 3);
 		}
 	}
@@ -114,7 +112,6 @@ void onTrackbarSlide(int pos, void*)
 		// Use the copyTo method of the Mat class to copy the image from the source
 		// image to the destination image.
 		//-------------------------------------------------------------------------
-#pragma message ("*** add code ***")	// TODO: add your code here.  Replace this line with your code
 		g_imageInput.copyTo(g_imageOutput);
 	}
 
@@ -135,7 +132,6 @@ int main(int argc, char** argv)
 	// then pause for the user response 
 	// and return -1.
 	//-------------------------------------------------------------------------
-#pragma message ("*** add code ***")	// TODO: add your code here.  Replace this line with your code
 	if (argc != 4)
 	{
 		cout << " Usage: " << argv[0] << " input_image_filename filtered_image_filename maximum_number_smoothing_cycles" << endl;
@@ -214,7 +210,6 @@ int main(int argc, char** argv)
 	// whose name is in imageNameInput.  Store the image in the global Mat object 
 	// allocated above.
 	//-------------------------------------------------------------------------
-#pragma message ("*** add code ***")	// TODO: add your code here.  Replace this line with your code
 	g_imageInput = imread(imageNameInput, IMREAD_COLOR);
 
 
@@ -231,7 +226,6 @@ int main(int argc, char** argv)
 	// pause for the user's response
 	// and return -1.
 	//-------------------------------------------------------------------------
-#pragma message ("*** add code ***")	// TODO: add your code here.  Replace this line with your code
 	if (!g_imageInput.data)
 	{
 		cout << "Could not open or find the input image" << endl;
@@ -249,7 +243,6 @@ int main(int argc, char** argv)
 	// Use the namedWindow function to create a window for displaying the input
 	// image.
 	//-------------------------------------------------------------------------
-#pragma message ("*** add code ***")	// TODO: add your code here.  Replace this line with your code
 	namedWindow("Input Image", WINDOW_AUTOSIZE);
 
 
@@ -263,7 +256,6 @@ int main(int argc, char** argv)
 	// output filtered image.  
 	// Note: this must have a different name from the input image window, above.
 	//-------------------------------------------------------------------------
-#pragma message ("*** add code ***")	// TODO: add your code here.  Replace this line with your code
 	namedWindow("Filtered Image", WINDOW_AUTOSIZE);
 
 
@@ -288,7 +280,6 @@ int main(int argc, char** argv)
 	// Use the default value of userdata (no input parameter required),
 	// for the last parameter (see the OpenCV function documentation).
 	//-------------------------------------------------------------------------
-#pragma message ("*** add code ***")	// TODO: add your code here.  Replace this line with your code
 	createTrackbar("# Cycles", "Filtered Image", &g_numFilterCycles, maxNumCycles, onTrackbarSlide);
 
 
@@ -301,7 +292,6 @@ int main(int argc, char** argv)
 	// Use the imshow function to display the color image in the first window 
 	// that was created above.
 	//-------------------------------------------------------------------------
-#pragma message ("*** add code ***")	// TODO: add your code here.  Replace this line with your code
 	imshow("Input Image", g_imageInput);
 
 
@@ -320,18 +310,15 @@ int main(int argc, char** argv)
 	//-------------------------------------------------------------------------
 	if (g_numFilterCycles > 0)
 	{
-#pragma message ("*** add code ***")	// TODO: add your code here.  Replace this line with your code
 		GaussianBlur(g_imageInput, g_imageOutput, Size(5, 5), 3, 3);
 
 		for (int i = 1; i < g_numFilterCycles; i++)
 		{
-#pragma message ("*** add code ***")	// TODO: add your code here.  Replace this line with your code
 			GaussianBlur(g_imageOutput, g_imageOutput, Size(5, 5), 3, 3);
 		}
 	}
 	else
 	{
-#pragma message ("*** add code ***")	// TODO: add your code here.  Replace this line with your code
 		g_imageInput.copyTo(g_imageOutput);
 	}
 
@@ -356,7 +343,6 @@ int main(int argc, char** argv)
 		// is attached to the output window created above.  
 		// Pass the number of filtering cycles, obtained above as the new slider position.
 		//-------------------------------------------------------------------------
-#pragma message ("*** add code ***")	// TODO: add your code here.  Replace this line with your code
 		setTrackbarPos("Filtering Cycles", "Filtered Image", g_numFilterCycles);
 
 
@@ -367,7 +353,6 @@ int main(int argc, char** argv)
 		// Use the imshow function to display the filtered image in the output window 
 		// that was created above.
 		//-------------------------------------------------------------------------
-#pragma message ("*** add code ***")	// TODO: add your code here.  Replace this line with your code
 		imshow("Filtered image", g_imageOutput);
 
 
@@ -379,7 +364,6 @@ int main(int argc, char** argv)
 		// Use the return value of waitKey to determine whether an <Esc> was pressed by the user.  
 		// If an <Esc> was pressed, break out of the "forever" loop.
 		//-------------------------------------------------------------------------
-#pragma message ("*** add code ***")	// TODO: add your code here.  Replace this line with your code
 		char c = waitKey(33);
 		if (c == 27)
 		{
@@ -396,7 +380,6 @@ int main(int argc, char** argv)
 	// Use the imwrite function to write the filtered image into the output
 	// image file.
 	//-------------------------------------------------------------------------
-#pragma message ("*** add code ***")	// TODO: add your code here.  Replace this line with your code
 	imwrite(imageNameOutput, g_imageOutput);
 
 
